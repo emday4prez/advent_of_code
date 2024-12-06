@@ -2,6 +2,7 @@ package two
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/emday4prez/advent_of_code/utils"
 )
@@ -12,11 +13,19 @@ func SolvePart1() int {
 		fmt.Println(err)
 		return 1
 	}
+	total := 0
+	for i := 0; i < len(lines); i++ {
+		report := strings.Split(lines[i], " ")
 
-	for _, levels := range lines {
-		fmt.Println(levels)
+		if isLevelSafe(report) {
+			total++
+		}
 
 	}
+	fmt.Println(total)
+	return total
+}
 
-	return 0
+func isLevelSafe(levels []string) bool {
+
 }
