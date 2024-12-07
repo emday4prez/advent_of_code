@@ -2,6 +2,7 @@ package two
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 
 	"github.com/emday4prez/advent_of_code/utils"
@@ -13,19 +14,30 @@ func SolvePart1() int {
 		fmt.Println(err)
 		return 1
 	}
-	total := 0
-	for i := 0; i < len(lines); i++ {
-		report := strings.Split(lines[i], " ")
 
-		if isLevelSafe(report) {
-			total++
-		}
-
-	}
-	fmt.Println(total)
-	return total
 }
 
-func isLevelSafe(levels []string) bool {
+func isValidSequence(report []int) bool {
 
+}
+
+func countSafeReports(reports []string) int {
+	count := 0
+	for _, report := range reports {
+		// parse numbers
+		var levels []int
+
+		for _, strNum := range strings.Fields(report) {
+			num, err := strconv.Atoi(strNum)
+			if err != nil {
+				panic(err)
+			}
+			levels = append(levels, num)
+		}
+		if isValidSequence(levels) {
+			count++
+
+		}
+	}
+	return count
 }
