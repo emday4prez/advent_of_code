@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/emday4prez/advent_of_code/two"
+	"github.com/emday4prez/advent_of_code/three"
 
 	"fmt"
 )
@@ -11,7 +11,11 @@ func main() {
 	// one.SolvePart1()
 	// one.SolvePart2()
 
-	fmt.Println("\nDay 2:")
-	two.SolvePart1()
+	//fmt.Println("\nDay 2:")
+	//two.SolvePart1()
+	//two.SolvePart2()
+
+	fmt.Println("\nDay 3:")
+	three.Solve1()
 	//two.SolvePart2()
 }
