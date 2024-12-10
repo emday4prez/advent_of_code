@@ -9,7 +9,7 @@ import (
 )
 
 func SolvePart1() int {
-	lines, err := utils.ReadInput("two/intput.txt")
+	reports, err := utils.ReadInput("two/intput.txt")
 	if err != nil {
 		fmt.Println(err)
 		return 1
