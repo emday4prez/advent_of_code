@@ -1,21 +1,14 @@
 package main
 
 import (
-	"github.com/emday4prez/advent_of_code/three"
+	"github.com/emday4prez/advent_of_code/four"
 
 	"fmt"
 )
 
 func main() {
-	// fmt.Println("Day 1:")
-	// one.SolvePart1()
-	// one.SolvePart2()
+	fmt.Println("Day 4:")
+	four.Solve1()
+	//.SolvePart2()
 
-	//fmt.Println("\nDay 2:")
-	//two.SolvePart1()
-	//two.SolvePart2()
-
-	fmt.Println("\nDay 3:")
-	three.Solve1()
-	//two.SolvePart2()
 }
