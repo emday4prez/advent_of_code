@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+type Grid [][]rune
+
 func ReadInput(path string) ([]string, error) {
 	file, err := os.Open(path)
 	if err != nil {
@@ -30,18 +32,18 @@ func ReadInputToString(path string) (string, error) {
 	return string(content), nil
 }
 
-func CreateGridFromFile(path string) ([][]rune, error) {
+func CreateGridFromFile(path string) (Grid, error) {
 	file, err := os.Open(path)
 	if err != nil {
 		return nil, err
 	}
 	defer file.Close()
 
-	var lines [][]rune
+	var rows Grid
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		lines = append(lines, []rune(scanner.Text()))
+		rows = append(rows, []rune(scanner.Text()))
 	}
 
-	return lines, scanner.Err()
+	return rows, scanner.Err()
 }
