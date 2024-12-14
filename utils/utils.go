@@ -86,10 +86,25 @@ func ReadManual(path string) ([]OrderRule, [][]int, error) {
 				pages = append(pages, p)
 
 			}
-
 			part2 = append(part2, pages)
+		} else {
+			var o OrderRule
+			rules := strings.Split(line, "|")
+			first, err := strconv.Atoi(rules[0])
+			if err != nil {
+				continue
+			}
+			second, err := strconv.Atoi(rules[1])
+			if err != nil {
+				continue
+			}
+			o[0] = first
+			o[1] = second
+			part1 = append(part1, o)
 		}
 	}
+	fmt.Println(part1)
 	fmt.Println(part2)
+
 	return part1, part2, nil
 }
