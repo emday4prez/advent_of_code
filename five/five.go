@@ -21,3 +21,8 @@ func Solve1() ([]utils.OrderRule, [][]int, error) {
 	}
 	return orderRules, pagesToUpdate, nil
 }
+
+func CheckPairs(rules []utils.OrderRule, slices [][]int) ([]int, error) {
+	numPositions := make(map[int]map[int][]int)
+
+}
