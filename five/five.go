@@ -23,6 +23,14 @@ func Solve1() ([]utils.OrderRule, [][]int, error) {
 }
 
 func CheckPairs(rules []utils.OrderRule, slices [][]int) ([]int, error) {
-	numPositions := make(map[int]map[int][]int)
 
+}
+
+func buildPresenceMap(slices [][]int) map[int]map[int]bool {
+	for sliceIndex, slice := range slices {
+		for pos, num := range slice {
+			fmt.Printf("Number %d found in slice %d at position %d\n",
+				num, sliceIndex, pos)
+		}
+	}
 }
