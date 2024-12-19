@@ -19,14 +19,17 @@ func Solve1() ([]utils.OrderRule, [][]int, error) {
 	if err != nil {
 		fmt.Println("errrrrr reading input")
 	}
+
+	buildPresenceMap(pagesToUpdate)
+
 	return orderRules, pagesToUpdate, nil
 }
 
-func CheckPairs(rules []utils.OrderRule, slices [][]int) ([]int, error) {
+// func CheckPairs(rules []utils.OrderRule, slices [][]int) ([]int, error) {
+// return []int, nil
+// }
 
-}
-
-func buildPresenceMap(slices [][]int) map[int]map[int]bool {
+func buildPresenceMap(slices [][]int) {
 	for sliceIndex, slice := range slices {
 		for pos, num := range slice {
 			fmt.Printf("Number %d found in slice %d at position %d\n",
