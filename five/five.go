@@ -29,11 +29,15 @@ func Solve1() ([]utils.OrderRule, [][]int, error) {
 // return []int, nil
 // }
 
-func buildPresenceMap(slices [][]int) {
+func buildPresenceMap(slices [][]int) map[int]map[int]bool {
+	presenceOfNumbers := make(map[int]map[int]bool)
 	for sliceIndex, slice := range slices {
-		for pos, num := range slice {
-			fmt.Printf("Number %d found in slice %d at position %d\n",
-				num, sliceIndex, pos)
+		for _, num := range slice {
+			if presenceOfNumbers[num] == nil {
+				presenceOfNumbers[num] = make(map[int]bool)
+				presenceOfNumbers[num][sliceIndex] = true
+			}
 		}
 	}
+	return presenceOfNumbers
 }
