@@ -28,7 +28,6 @@ func buildPresenceMap(slices [][]int) map[int]map[int]bool {
 			presenceOfNumbers[num][sliceIndex] = true
 		}
 	}
-
 	return presenceOfNumbers
 }
 
@@ -41,7 +40,6 @@ func buildPositionMap(slices [][]int) map[int]map[int][]int {
 			}
 			positionOfNumbers[number][sliceIndex] = append(positionOfNumbers[number][sliceIndex], position)
 		}
-
 	}
 	return positionOfNumbers
 }
