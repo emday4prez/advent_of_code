@@ -12,7 +12,46 @@ func Solve1() ([]utils.OrderRule, [][]int, error) {
 		fmt.Println("errrrrr reading input")
 	}
 
-	buildPresenceMap(pagesToUpdate)
+	positions := buildPositionMap(pagesToUpdate)
+
+	matches := make([]int, 0)
+	seen := make(map[int]bool)
+	for _, pair := range orderRules {
+
+		first, second := pair[0], pair[1]
+		// Get slices containing first number
+		firstSlices := positions[first]
+		if firstSlices == nil {
+			continue
+		}
+
+		// Get slices containing second number
+		secondSlices := positions[second]
+		if secondSlices == nil {
+			continue
+		}
+
+		for sliceIndex, firstPositions := range firstSlices {
+			secondPositions, exists := secondSlices[sliceIndex]
+			if !exists {
+				continue
+			}
+
+			for _, firstPos := range firstPositions {
+				for _, secondPos := range secondPositions {
+					if firstPos < secondPos && !seen[sliceIndex] {
+						matches = append(matches, sliceIndex)
+						seen[sliceIndex] = true
+						break
+					}
+				}
+				if seen[sliceIndex] {
+					break
+				}
+			}
+		}
+
+	}
 
 	return orderRules, pagesToUpdate, nil
 }
