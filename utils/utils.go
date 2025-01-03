@@ -2,7 +2,6 @@ package utils
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"strconv"
 
@@ -103,8 +102,6 @@ func ReadManual(path string) ([]OrderRule, [][]int, error) {
 			part1 = append(part1, o)
 		}
 	}
-	fmt.Println(part1)
-	fmt.Println(part2)
 
 	return part1, part2, nil
 }

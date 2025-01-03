@@ -13,7 +13,6 @@ func Solve1() ([]utils.OrderRule, [][]int, error) {
 	}
 
 	positions := buildPositionMap(pagesToUpdate)
-
 	matches := make([]int, 0)
 	seen := make(map[int]bool)
 	for _, pair := range orderRules {
@@ -52,23 +51,30 @@ func Solve1() ([]utils.OrderRule, [][]int, error) {
 		}
 
 	}
+	sum := 0
+	for _, sliceIdx := range matches {
+		slice := pagesToUpdate[sliceIdx]
+		middleIndex := (len(slice) - 1) / 2
+		sum += slice[middleIndex]
+	}
 
+	fmt.Println(sum)
 	return orderRules, pagesToUpdate, nil
 }
 
 // practicing go maps
-func buildPresenceMap(slices [][]int) map[int]map[int]bool {
-	presenceOfNumbers := make(map[int]map[int]bool)
-	for sliceIndex, slice := range slices {
-		for _, num := range slice {
-			if presenceOfNumbers[num] == nil {
-				presenceOfNumbers[num] = make(map[int]bool)
-			}
-			presenceOfNumbers[num][sliceIndex] = true
-		}
-	}
-	return presenceOfNumbers
-}
+// func buildPresenceMap(slices [][]int) map[int]map[int]bool {
+// 	presenceOfNumbers := make(map[int]map[int]bool)
+// 	for sliceIndex, slice := range slices {
+// 		for _, num := range slice {
+// 			if presenceOfNumbers[num] == nil {
+// 				presenceOfNumbers[num] = make(map[int]bool)
+// 			}
+// 			presenceOfNumbers[num][sliceIndex] = true
+// 		}
+// 	}
+// 	return presenceOfNumbers
+// }
 
 func buildPositionMap(slices [][]int) map[int]map[int][]int {
 	positionOfNumbers := make(map[int]map[int][]int)
